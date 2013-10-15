@@ -1,9 +1,4 @@
 set fileencodings=utf-8,gb2312,gbk,gb18030
-set autoindent
-set shiftwidth=4
-set softtabstop=4
-"set lines=40
-"set columns=85
 set termencoding=utf-8
 set fileformats=unix
 set encoding=utf8
@@ -103,9 +98,9 @@ function AddTitle(cmt_start,cmt_end,cmt)
     else
         call setline(1,a:cmt_start.repeat(a:cmt,60))
     endif
-    call append(1,a:cmt."Author    : ChinaXing - chen.yack@gmail.com")
+    call append(1,a:cmt."Author    : oerk - 01oerk\@gmail.com")
     call append(2,a:cmt."Create    : ".strftime("%Y-%m-%d %H:%M"))
-    call append(3,a:cmt."Function  : xxxxx")
+    call append(3,a:cmt."Function  : function")
     if a:cmt_end == a:cmt
         call append(4,repeat(a:cmt,60))
     else
