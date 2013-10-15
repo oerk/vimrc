@@ -94,17 +94,17 @@ map <leader>jt :call Jekyll_AddTitle()<CR>
 """""""""""""""""""""""""""""
 function AddTitle(cmt_start,cmt_end,cmt)
     if a:cmt_start == a:cmt
-        call setline(1,repeat(a:cmt,60))
+        call setline(2,repeat(a:cmt,60))
     else
-        call setline(1,a:cmt_start.repeat(a:cmt,60))
+        call setline(2,a:cmt_start.repeat(a:cmt,60))
     endif
-    call append(1,a:cmt."Author    : oerk - 01oerk\@gmail.com")
-    call append(2,a:cmt."Create    : ".strftime("%Y-%m-%d %H:%M"))
-    call append(3,a:cmt."Function  : function")
+    call append(2,a:cmt."Author    : oerk - 01oerk\@gmail.com")
+    call append(3,a:cmt."Create    : ".strftime("%Y-%m-%d %H:%M"))
+    call append(4,a:cmt."Function  : function")
     if a:cmt_end == a:cmt
-        call append(4,repeat(a:cmt,60))
+        call append(5,repeat(a:cmt,60))
     else
-        call append(4,repeat(a:cmt,60).a:cmt_end)
+        call append(5,repeat(a:cmt,60).a:cmt_end)
     endif
 endfunc
 
