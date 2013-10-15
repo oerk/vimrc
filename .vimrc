@@ -14,7 +14,8 @@ set shiftwidth=4                " autoindent witespace width
 set uc=0                        " do not use swap file when editing
 set nu                          " show line number "
 set expandtab                   " expand TAB to white space "
-
+set viminfo='20,\"50 
+set statusline+=%{FileTime()}
 filetype plugin on
 
 if &t_Co > 2 || has("gui_running")
@@ -22,6 +23,11 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
   set t_Co=256
 endif
+
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  endif
+
 
 if has("autocmd")
   filetype plugin indent on
@@ -41,7 +47,7 @@ else
   set autoindent        " always set autoindenting on
 endif
 
-colorscheme calmar256-dark
+"colorscheme calmar256-dark
 
 """""""""""""""""""""""""""
 " settings for taglist
@@ -129,4 +135,19 @@ function AddTitle_for_file()
 endfunc
 
 map <leader>at :call AddTitle_for_file()<CR>
+
+function FileTime()
+    let ext=tolower(expand(“%:e”))
+    let fname=tolower(expand(‘%<'))
+    let filename=fname . '.' . ext
+    let msg=""
+    let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
+    return msg
+endf
+
+function CurTime()
+    let ftime=""
+    let ftime=ftime." ".strftime("%b,%d %y %H:%M:%S")
+    return ftime
+endf
 
