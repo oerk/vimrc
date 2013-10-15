@@ -1,4 +1,9 @@
 set fileencodings=utf-8,gb2312,gbk,gb18030
+set autoindent
+set shiftwidth=4
+set softtabstop=4
+"set lines=40
+"set columns=85
 set termencoding=utf-8
 set fileformats=unix
 set encoding=utf8
