@@ -5,7 +5,7 @@ set encoding=utf8
 set laststatus=2                " always show statusline "
 set nocompatible
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-set history=1
+set history=500
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
@@ -16,6 +16,7 @@ set nu                          " show line number "
 set expandtab                   " expand TAB to white space "
 set viminfo='20,\"50 
 set statusline+=%{FileTime()}
+set dictionary+=/usr/share/dict/words
 filetype plugin on
 
 if &t_Co > 2 || has("gui_running")
